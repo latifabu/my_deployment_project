@@ -48,7 +48,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 sudo docker run hello-world
 ```
-If steps above do not work follow the official documentation 
+If steps above do not work follow the official documentation:
 https://docs.docker.com/engine/install/ubuntu/
 
 
@@ -64,3 +64,25 @@ Change external url to your own url
 (i.e your own oublic IP addresss if you are running your server on the cloud)
 - the docker compose yml file should look like the following
 ![docker_compose](https://i.imgur.com/ktxVdwo.jpg)
+- run `sudo docker-compose up -d`
+The follwing should appear 
+
+![docker_container](https://i.imgur.com/xZVtRcf.png)
+
+
+Next install Fly
+- Next, install the fly CLI by downloading it from the web UI and login to your local Concourse as the test user:
+   ```
+   $ curl 'http://<public_ip>):8080/api/v1/cli?arch=amd64&platform=darwin' -o fly \
+    && chmod +x ./fly && mv ./fly /usr/local/bin/ 
+    ```
+Then:
+
+    ``` 
+    $ fly -t tutorial login -c http://<your_public_ip>:8080 -u test -p test
+    logging in to team 'main' 
+
+    ```
+
+If running on localhost do the following:
+![imgur_link](https://i.imgur.com/YnhY1ma.png)

@@ -1,10 +1,18 @@
-# CICD 
+# CICD Using Concourse 
 
-## Using Concourse 
+### What is Concourse  
 #### ![concourse](https://miro.medium.com/max/1024/0*3LcW1HHfWBzDUy7S.png) 
-
-- Continous Intergration/ Continous Deployment (CICD)
-
+- Concourse is wrriten in GoLang
+- Fully open sourced
+- Uses postgress as a backend 
+- Uses containers to run tasks 
+#### Why Concourse and not Jenkins
+- Concourse is not at plugin dependant
+- Makes use of containers and therefore uses less sustem resources and the use of microservices.
+- Highly available
+- No strcit isolation when running tasks/jobs
+- Just write everything in yaml thus makeing code easier to replicate 
+-  
 ### Install Concourse CI on Ubuntu 22.04 using Docker and docker compose
 
 1)

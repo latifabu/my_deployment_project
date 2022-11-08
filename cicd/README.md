@@ -77,6 +77,10 @@ The follwing should appear
 
 ![docker_container](https://i.imgur.com/xZVtRcf.png)
 
+- Create IP address and associate it with the EC2 instance.
+- Use that IP in when setting up the docker compose to save changing the IP daily
+![elastic_ip](https://i.imgur.com/c7IWUI1.png)
+
 
 Next install Fly
 - Next, install the fly CLI by downloading it from the web UI and login to your local Concourse as the test user:

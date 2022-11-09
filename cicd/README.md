@@ -12,7 +12,7 @@
 - Highly available
 - No strcit isolation when running tasks/jobs
 - Just write everything in yaml thus makeing code easier to replicate 
--  
+-  Wehook is not necessary to trigger a job
 ### Install Concourse CI on Ubuntu 22.04 using Docker and docker compose
 
 1)

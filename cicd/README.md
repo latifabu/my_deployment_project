@@ -15,6 +15,8 @@
 -  Wehook is not necessary to trigger a job
 ### Install Concourse CI on Ubuntu 22.04 using Docker and docker compose
 
+
+- Setup: remember concourse runs on port 8080 so when creating ec2 instance add port 8080 to your outbound rules
 1)
 ``` 
 # Standard server update to configure the server 

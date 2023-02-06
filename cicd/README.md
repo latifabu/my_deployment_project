@@ -93,10 +93,44 @@ Next install Fly
 Then:
 
     ``` 
-    $ fly -t tutorial login -c http://<your_public_ip>:8080 -u test -p test
+    $ fly -t tutorial login -c http://localhost:8080 -u test -p test
     logging in to team 'main' 
 
     ```
 
 If running on localhost do the following:
 ![imgur_link](https://i.imgur.com/YnhY1ma.png)
+
+
+#### Test server with a hello world pipeline:
+- create yaml file ` sudo nano hello-world.yml` 
+- add the following:
+```
+---
+jobs:
+- name: hello-world-job
+  plan:
+  - task: hello-world-task
+    config:
+      # Tells Concourse which type of worker this task should run on
+      platform: linux
+      # This is one way of telling Concourse which container image to use for a
+      # task. We'll explain this more when talking about resources
+      image_resource:
+        type: registry-image
+        source:
+          repository: busybox # images are pulled from docker hub by default
+      # The command Concourse will run inside the container
+      # echo "Hello world!"
+      run:
+        path: echo
+        args: ["Hello world!"]
+```
+
+- run the pipeline with `fly -t tutorial set-pipeline -p hello-world -c hello-world.yml`
+- pipelines are paused when created, unpause with ` fly -t tutorial unpause-pipeline -p hello-world`
+- trigger the job and watch it run with `fly -t tutorial trigger-job --job hello-world/hello-world-job --watch`
+- The result should be the following:
+![imgur_hello_wordl](https://imgur.com/cb9ROqJ.png)
+
+
